@@ -175,18 +175,28 @@ func CarbonEmissionofSingleBlock() float64 {
 func calculateEmissionRate(w http.ResponseWriter, r *http.Request) {
 	//We are calculating here all the carbon emission of the blockchain till how many blocks are generated
 	var bp = float64(len(BlockChain.blocks) - 1)
+	log.Printf("Calculating emission rate of %d blocks", bp)
 	carbonEmissionOfAllBlocks = CarbonEmissionofSingleBlock() * bp
-	carbonEmission := fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks)
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(carbonEmission))
+
+	response := map[string]string{
+		"carbonEmission": fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks),
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
 }
 
 func getLeaderBoard(w http.ResponseWriter, r *http.Request) {
 	var bp = float64(len(BlockChain.blocks) - 1)
+	log.Printf("Calculating emission rate of %d blocks", bp)
 	carbonEmissionOfAllBlocks = CarbonEmissionofSingleBlock() * bp
-	carbonEmission := fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks)
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(carbonEmission))
+
+	response := map[string]string{
+		"carbonEmission": fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks),
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(response)
 }
 
 func main() {
@@ -217,6 +227,7 @@ func main() {
 			bytes, _ := json.MarshalIndent(block.Data, "", " ")
 			fmt.Printf("Data: %v\n", string(bytes))
 			fmt.Printf("Hash: %x\n", block.Hash)
+			fmt.Printf("%x\n", carbonEmissionOfAllBlocks)
 			fmt.Println()
 		}
 
