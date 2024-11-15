@@ -182,7 +182,11 @@ func calculateEmissionRate(w http.ResponseWriter, r *http.Request) {
 }
 
 func getLeaderBoard(w http.ResponseWriter, r *http.Request) {
-
+	var bp = float64(len(BlockChain.blocks) - 1)
+	carbonEmissionOfAllBlocks = CarbonEmissionofSingleBlock() * bp
+	carbonEmission := fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(carbonEmission))
 }
 
 func main() {
