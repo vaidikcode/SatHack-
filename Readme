@@ -1,0 +1,2 @@
+CBR integrates an existing simple task ____ book purchase block chain. It utilises a simple go code to generate a blockchain along with the EnvFactor which we have included in every block.
+The EnvFactor utilises api's like electricityMap to dynamic get emission factor according to the region. Then the emission factor is used to calculate the carbon emission emmited in generation of every block.
