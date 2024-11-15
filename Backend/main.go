@@ -40,6 +40,8 @@ type Book struct {
 	ISBN        string `json:"isbn"`
 }
 
+var carbonEmissionOfAllBlocks float64
+
 func (b *Block) generateHash() {
 	bytes, _ := json.Marshal(b.Data)
 	data := string(b.Pos) + b.Timestamp + string(bytes) + b.PrevHash
@@ -173,10 +175,14 @@ func CarbonEmissionofSingleBlock() float64 {
 func calculateEmissionRate(w http.ResponseWriter, r *http.Request) {
 	//We are calculating here all the carbon emission of the blockchain till how many blocks are generated
 	var bp = float64(len(BlockChain.blocks) - 1)
-	carbonEmissionOfAllBlocks := CarbonEmissionofSingleBlock() * bp
+	carbonEmissionOfAllBlocks = CarbonEmissionofSingleBlock() * bp
 	carbonEmission := fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks)
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(carbonEmission))
+}
+
+func getLeaderBoard(w http.ResponseWriter, r *http.Request) {
+
 }
 
 func main() {
@@ -189,6 +195,7 @@ func main() {
 	r.HandleFunc("/blockdisplay", writeBlock).Methods("POST")
 	r.HandleFunc("/checkout", newBook).Methods("POST")
 	r.HandleFunc("/emissionRate", calculateEmissionRate).Methods("GET")
+	r.HandleFunc("/LeaderBoard", getLeaderBoard).Methods("GET")
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:5174"},
