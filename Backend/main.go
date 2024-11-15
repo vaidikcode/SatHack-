@@ -164,15 +164,25 @@ func newBook(w http.ResponseWriter, r *http.Request) {
 	w.Write(resp)
 }
 
+func calculateEmissionRate(w http.ResponseWriter, r *http.Request) {
+	//We are calculating here all the carbon emission of the blockchain till how many blocks are generated
+	var bp = float64(len(BlockChain.blocks) - 1)
+	carbonEmissionOfAllBlocks := CarbonEmissionofSingleBlock() * bp
+	carbonEmission := fmt.Sprintf("%.2f", carbonEmissionOfAllBlocks)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(carbonEmission))
+}
+
 func main() {
 
 	BlockChain = NewBlockchain()
 
 	r := mux.NewRouter()
 
-	r.HandleFunc("/", getBlockchain).Methods("GET")
-	r.HandleFunc("/", writeBlock).Methods("POST")
-	r.HandleFunc("/new", newBook).Methods("POST")
+	r.HandleFunc("/blockdisplay", getBlockchain).Methods("GET")
+	r.HandleFunc("/blockdisplay", writeBlock).Methods("POST")
+	r.HandleFunc("/checkout", newBook).Methods("POST")
+	r.HandleFunc("/emissionRate", calculateEmissionRate).Methods("GET")
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:5174"},
