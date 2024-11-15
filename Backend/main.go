@@ -6,6 +6,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"github.com/rs/cors"
 	"io"
 	"log"
 	"net/http"
@@ -166,10 +167,18 @@ func main() {
 	BlockChain = NewBlockchain()
 
 	r := mux.NewRouter()
+
 	r.HandleFunc("/", getBlockchain).Methods("GET")
 	r.HandleFunc("/", writeBlock).Methods("POST")
 	r.HandleFunc("/new", newBook).Methods("POST")
 
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:5174"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+		AllowedHeaders:   []string{"Authorization", "Content-Type"},
+		AllowCredentials: true,
+	})
+	handler := c.Handler(r)
 	go func() {
 
 		for _, block := range BlockChain.blocks {
@@ -183,5 +192,5 @@ func main() {
 	}()
 	log.Println("Listening on port 3000")
 
-	log.Fatal(http.ListenAndServe(":3000", r))
+	log.Fatal(http.ListenAndServe(":3000", handler))
 }
