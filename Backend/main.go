@@ -15,12 +15,14 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// Block EnvIndex returns carbon emission till the position of blockchain is created
 type Block struct {
 	Pos       int
 	Data      purchaseList
 	Timestamp string
 	Hash      string
 	PrevHash  string
+	EnvIndex  string
 }
 
 type purchaseList struct {
@@ -174,9 +176,11 @@ func main() {
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:5174"},
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Authorization", "Content-Type"},
+		ExposedHeaders:   []string{"Authorization", "Content-Type"},
 		AllowCredentials: true,
+		MaxAge:           86400,
 	})
 	handler := c.Handler(r)
 	go func() {
