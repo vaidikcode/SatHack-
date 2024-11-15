@@ -164,6 +164,12 @@ func newBook(w http.ResponseWriter, r *http.Request) {
 	w.Write(resp)
 }
 
+func CarbonEmissionofSingleBlock() float64 {
+	ef := float64(480)
+	value := (ef * 0.15) + (0.01 * 750 * 10)
+	return value
+}
+
 func calculateEmissionRate(w http.ResponseWriter, r *http.Request) {
 	//We are calculating here all the carbon emission of the blockchain till how many blocks are generated
 	var bp = float64(len(BlockChain.blocks) - 1)
