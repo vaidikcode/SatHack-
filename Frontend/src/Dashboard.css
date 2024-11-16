@@ -1,0 +1,75 @@
+
+.dashboard-container {
+    background-image: url('https://files.oaiusercontent.com/file-uAwBLM9JqWHAEZwxB0eBSsvv?se=2024-11-15T23%3A39%3A58Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D41f1bbf6-6e0b-4d9a-8b0c-a6c235f24e3d.webp&sig=gJFyzEyM4HrOw9N/IL3uqaKwEZYc%2BOvuvlMHV8Cpuo4%3D '); /* Use your image URL here */
+    background-size:contain;
+    margin: 0px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+    padding: 10px 0;
+    z-index: 100;
+  }
+  
+  .navbar .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .navbar .logo img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .navbar .nav-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar .nav-links a {
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar .nav-links a:hover {
+    color: #ff6347; /* Tomato color on hover */
+  }
+  
+  .welcome-message h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+  }
+  
+  .welcome-message a {
+    font-size: 1.25rem;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .welcome-message a:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.05);
+  }
+  
