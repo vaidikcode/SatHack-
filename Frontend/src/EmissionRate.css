@@ -1,0 +1,131 @@
+/* src/pages/EmissionRate.css */
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;  /* Light blue background for a fresh look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  /* Container for the Emission Rate content */
+  .emission-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 50px;  /* Space from top */
+    margin-left : 500px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Keyframe animation for fade-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Heading styling */
+  .emission-container h2 {
+    font-size: 2.25rem;
+    color: #007bff;  /* Blue for main heading */
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  /* Styling for the emission rate value */
+  .emission-container h3 {
+    font-size: 2.5rem;  /* Increased font size */
+    color: #28a745;     /* Green color to signify eco-friendly */
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: bounceIn 1s ease-in-out;
+  }
+  
+  /* Keyframe animation for bounce-in effect */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Styling for the loading message */
+  .emission-container p {
+    font-size: 1.25rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button active state (when clicked) */
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Make the page responsive */
+  @media (max-width: 768px) {
+    .emission-container {
+      width: 90%;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  
+    .emission-container h2 {
+      font-size: 2rem;
+    }
+  
+    .emission-container h3 {
+      font-size: 2rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px 25px;
+    }
+  }
+  #pg{
+    border: 1px solid white;
+    margin-top: 0px;
+    background-image: url(https://img.freepik.com/free-vector/geometric-background-with-polygonal-lines_1017-6448.jpg?uid=R170697223&ga=GA1.1.1844350286.1731713021&semt=ais_hybrid);
+    background-size:cover;
+  }

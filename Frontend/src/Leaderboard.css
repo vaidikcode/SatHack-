@@ -1,0 +1,78 @@
+/* src/pages/Leaderboard.css */
+
+.leaderboard-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .loading-text {
+    font-size: 1.25rem;
+    color: #ff6600;
+    text-align: center;
+  }
+  
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .leaderboard-table th, .leaderboard-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .leaderboard-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .leaderboard-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .leaderboard-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .leaderboard-table td {
+    color: #333;
+    font-size: 1.1rem;
+  }
+  
+  /* Make the leaderboard responsive */
+  @media (max-width: 768px) {
+    .leaderboard-container {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .leaderboard-table th, .leaderboard-table td {
+      padding: 8px;
+    }
+  
+    .leaderboard-table td {
+      font-size: 1rem;
+    }
+  }
+  

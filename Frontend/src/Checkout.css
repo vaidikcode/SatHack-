@@ -1,0 +1,140 @@
+
+  
+  /* Container for the checkout form */
+  .checkout-container {
+    width: 500px;
+    height:500px;
+    background-color: white;
+    padding: 30px;
+    margin: 50px auto;
+    margin-top: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(
+        from var(--border-angle),
+        rgb(193, 207, 152),
+        rgb(187, 211, 149) 5%,
+        rgb(195, 200, 127) 60%,
+        rgb(191, 201, 121) 95%
+      );
+    
+    border: solid 5px transparent;
+    border-radius: 2em;
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 25%, #08f, rgb(8, 240, 186) 99%, transparent);
+    
+    background: 
+     
+      var(--main-bg) padding-box,
+     
+      var(--gradient-border) border-box, 
+      
+      var(--main-bg) border-box;
+    
+    background-position: center center;
+  
+    animation: bg-spin 3s linear infinite;
+    }
+    @keyframes bg-spin {
+        to {
+          --border-angle: 1turn;
+        }
+      }
+    
+      &:hover {
+        animation-play-state: paused;
+      }
+    
+    
+    @property --border-angle {
+      syntax: "<angle>";
+      inherits: true;
+      initial-value: 0turn;
+    }
+  
+  
+  
+  /* Heading for the form */
+  .checkout-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  /* Input field styling */
+  input[type="text"],
+  input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+  }
+  
+  /* Focus state for input fields */
+  input[type="text"]:focus,
+  input[type="date"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Button active state (when clicked) */
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .checkout-container {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .checkout-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    input[type="text"],
+    input[type="date"],
+    button {
+      font-size: 0.9rem;
+    }
+  }
+
+  #pg{
+    border: 1px solid white;
+    margin-top: 0px;
+    background-image: url(https://img.freepik.com/free-vector/geometric-background-with-polygonal-lines_1017-6448.jpg?uid=R170697223&ga=GA1.1.1844350286.1731713021&semt=ais_hybrid);
+    background-size:contain;
+  }
+  
