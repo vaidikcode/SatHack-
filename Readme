@@ -1,2 +1,7 @@
 CBR integrates an existing simple task ____ book purchase block chain. It utilises a simple go code to generate a blockchain along with the EnvFactor which we have included in every block. It generates carbon emission
 .
+To run the frontend 
+type : npm run dev
+
+To run the backend 
+type : go run main.go
